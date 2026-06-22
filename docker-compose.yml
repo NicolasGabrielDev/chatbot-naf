@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    user: "${APP_UID:-1000}:${APP_GID:-1001}"
+    ports:
+      - "8374:8374"
+    volumes:
+      - ./.env:/app/.env:ro
+      - ./app/vectorstore:/app/app/vectorstore
+      - ./data:/app/data
