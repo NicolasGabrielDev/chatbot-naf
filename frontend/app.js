@@ -167,7 +167,8 @@ async function submitQuestion(rawQuestion) {
         status: response.status,
         requestId,
       });
-      throw new Error("Falha ao consultar o assistente.");
+      const errorMessage = typeof data.detail === "string" ? data.detail : "Falha ao consultar o assistente.";
+      throw new Error(errorMessage);
     }
 
     state.messages.push({
@@ -178,7 +179,7 @@ async function submitQuestion(rawQuestion) {
   } catch (error) {
     state.messages.push({
       role: "assistant",
-      content: "Não foi possível processar sua pergunta agora. Tente novamente mais tarde.",
+      content: error.message || "Não foi possível processar sua pergunta agora. Tente novamente mais tarde.",
       sources: [],
     });
   } finally {

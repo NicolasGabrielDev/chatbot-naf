@@ -1,5 +1,6 @@
 import logging
 import hashlib
+import json
 import math
 import re
 
@@ -7,12 +8,17 @@ from openai import OpenAI
 import google.generativeai as genai
 
 from app.core.config import Settings
+from app.services.topic_catalog import simplify_question
 
 logger = logging.getLogger(__name__)
 TOKEN_PATTERN = re.compile(r"[a-zA-ZÀ-ÿ0-9]{3,}")
 
 
 class LLMServiceError(Exception):
+    pass
+
+
+class LLMRateLimitError(LLMServiceError):
     pass
 
 
@@ -45,7 +51,48 @@ class LLMService:
             return answer
         except Exception as exc:
             logger.exception("llm.generate.failed provider=%s model=%s", self.settings.llm_provider, self.settings.llm_model)
+            if _is_rate_limit_error(exc):
+                raise LLMRateLimitError("Limite temporário do provedor de IA atingido.") from exc
             raise LLMServiceError(f"Falha na chamada da LLM: {exc}") from exc
+
+    def classify_topics(self, question: str, topics: list[dict]) -> list[str]:
+        simplified_question = simplify_question(question)
+        catalog = [
+            {
+                "id": topic["id"],
+                "section": topic.get("section", ""),
+                "title": topic["title"],
+            }
+            for topic in topics
+        ]
+        system_prompt = (
+            "Classifique uma dúvida sobre Imposto de Renda usando somente o catálogo fornecido. "
+            "Retorne JSON no formato {\"topic_ids\": [\"001\"]}. "
+            "Selecione de um a três temas diretamente relacionados, priorizando o tema mais geral quando "
+            "a pergunta pedir um conceito. Nunca invente IDs."
+        )
+        user_prompt = (
+            f"Pergunta simplificada: {simplified_question}\n\n"
+            f"Catálogo de temas: {json.dumps(catalog, ensure_ascii=False)}"
+        )
+
+        try:
+            if self.settings.llm_provider == "openai":
+                response = self._generate_openai_raw(system_prompt, user_prompt, json_response=True)
+            else:
+                response = self._generate_gemini_raw(system_prompt, user_prompt, json_response=True)
+            topic_ids = _parse_topic_ids(response)
+            valid_ids = {topic["id"] for topic in topics}
+            if not topic_ids or len(topic_ids) > 3 or any(topic_id not in valid_ids for topic_id in topic_ids):
+                raise LLMServiceError("O modelo não identificou temas válidos para a pergunta.")
+            return topic_ids
+        except LLMServiceError:
+            raise
+        except Exception as exc:
+            logger.exception("llm.topic_classification.failed provider=%s", self.settings.llm_provider)
+            if _is_rate_limit_error(exc):
+                raise LLMRateLimitError("Limite temporário do provedor de IA atingido.") from exc
+            raise LLMServiceError(f"Falha na classificação do tema: {exc}") from exc
 
     def embed_texts(self, texts: list[str]) -> list[list[float]]:
         logger.info(
@@ -112,28 +159,40 @@ class LLMService:
     def _generate_openai(self, question: str, context: str, system_prompt: str) -> str:
         return self._generate_openai_raw(system_prompt, _build_user_prompt(question, context))
 
-    def _generate_openai_raw(self, system_prompt: str, user_prompt: str) -> str:
+    def _generate_openai_raw(self, system_prompt: str, user_prompt: str, json_response: bool = False) -> str:
         client = OpenAI(api_key=self.settings.openai_api_key)
-        response = client.chat.completions.create(
-            model=self.settings.llm_model,
-            messages=[
+        request = {
+            "model": self.settings.llm_model,
+            "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            temperature=0.2,
+            "temperature": 0.2,
+        }
+        if json_response:
+            request["response_format"] = {"type": "json_object"}
+            request["temperature"] = 0
+        response = client.chat.completions.create(
+            **request,
         )
         return response.choices[0].message.content or _fallback_answer()
 
     def _generate_gemini(self, question: str, context: str, system_prompt: str) -> str:
         return self._generate_gemini_raw(system_prompt, _build_user_prompt(question, context))
 
-    def _generate_gemini_raw(self, system_prompt: str, user_prompt: str) -> str:
+    def _generate_gemini_raw(self, system_prompt: str, user_prompt: str, json_response: bool = False) -> str:
         genai.configure(api_key=self.settings.gemini_api_key)
         model = genai.GenerativeModel(
             model_name=self.settings.llm_model,
             system_instruction=system_prompt,
         )
-        response = model.generate_content(user_prompt)
+        if json_response:
+            response = model.generate_content(
+                user_prompt,
+                generation_config={"response_mime_type": "application/json"},
+            )
+        else:
+            response = model.generate_content(user_prompt)
         return response.text or _fallback_answer()
 
     def _embedding_model_used(self) -> str:
@@ -156,6 +215,22 @@ def _build_user_prompt(question: str, context: str) -> str:
 
 def _fallback_answer() -> str:
     return "Não foi possível localizar uma resposta segura na base consultada."
+
+
+def _parse_topic_ids(response: str) -> list[str]:
+    try:
+        payload = json.loads(response)
+    except json.JSONDecodeError as exc:
+        raise LLMServiceError("O modelo retornou uma classificação de tema inválida.") from exc
+    topic_ids = payload.get("topic_ids")
+    if not isinstance(topic_ids, list) or not all(isinstance(topic_id, str) for topic_id in topic_ids):
+        raise LLMServiceError("O modelo retornou uma classificação de tema inválida.")
+    return list(dict.fromkeys(topic_ids))
+
+
+def _is_rate_limit_error(error: Exception) -> bool:
+    error_text = str(error).lower()
+    return "429" in error_text or "resource_exhausted" in error_text or "quota exceeded" in error_text
 
 
 def _extract_embeddings(result) -> list[list[float]]:

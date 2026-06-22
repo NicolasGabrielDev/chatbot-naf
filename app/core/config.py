@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     gemini_api_key: str | None = Field(default=None, alias="GEMINI_API_KEY")
 
     context_file_path: Path = Field(default=Path("./data/contexto.md"), alias="CONTEXT_FILE_PATH")
+    topic_index_path: Path = Field(default=Path("./data/context_index.json"), alias="TOPIC_INDEX_PATH")
     system_prompt_path: Path = Field(default=Path("./app/prompts/system_prompt.md"), alias="SYSTEM_PROMPT_PATH")
     vectorstore_path: Path = Field(default=Path("./app/vectorstore"), alias="VECTORSTORE_PATH")
     chroma_collection_name: str = Field(default="ir_context", alias="CHROMA_COLLECTION_NAME")
@@ -61,6 +62,8 @@ class Settings(BaseSettings):
             raise ValueError("GEMINI_API_KEY não foi configurada.")
         if not self.context_file_path.exists():
             raise FileNotFoundError(f"Arquivo de contexto não encontrado: {self.context_file_path}")
+        if not self.topic_index_path.exists():
+            raise FileNotFoundError(f"Índice de temas não encontrado: {self.topic_index_path}")
         if not self.system_prompt_path.exists():
             raise FileNotFoundError(f"Prompt de sistema não encontrado: {self.system_prompt_path}")
 

@@ -6,13 +6,14 @@ from fastapi import APIRouter, HTTPException, Response, status
 
 from app.core.config import get_settings
 from app.schemas.chat import ChatRequest, ChatResponse, HealthResponse
-from app.services.llm_service import LLMServiceError
+from app.services.llm_service import LLMRateLimitError, LLMServiceError
 from app.services.rag_service import RagService, RagServiceError
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
 CHAT_ERROR_MESSAGE = "Não foi possível processar sua pergunta agora. Tente novamente mais tarde."
+RATE_LIMIT_ERROR_MESSAGE = "O provedor de IA atingiu o limite temporário de uso. Tente novamente mais tarde."
 
 
 @router.get("/health", response_model=HealthResponse)
@@ -67,6 +68,13 @@ def chat(payload: ChatRequest, response: Response) -> ChatResponse:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=CHAT_ERROR_MESSAGE,
+            headers={"X-Request-ID": request_id},
+        ) from exc
+    except LLMRateLimitError as exc:
+        logger.exception("chat.request.failed request_id=%s error_type=rate_limit", request_id)
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail=RATE_LIMIT_ERROR_MESSAGE,
             headers={"X-Request-ID": request_id},
         ) from exc
     except LLMServiceError as exc:
