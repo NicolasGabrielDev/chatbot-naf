@@ -1,3 +1,1778 @@
+<!-- source: data/context.pdf -->
+
+<!-- page: 1 -->
+
+## Página 1
+
+1
+
+<!-- page: 2 -->
+
+## Página 2
+
+2
+MINISTÉRIO DA FAZENDA
+SECRETARIA ESPECIAL DA RECEITA FEDERAL DO BRASIL
+IMPOSTO SOBRE A RENDA – PESSOA FÍSICA
+PERGUNTAS E RESPOSTAS
+Exercício de 2026
+Ano-calendário de 2025
+PIR – PROGRAMA IMPOSTO SOBRE A RENDA – 2026
+Versão 1.0
+
+<!-- page: 3 -->
+
+## Página 3
+
+3
+IMPOSTO SOBRE A RENDA – PESSOA FÍSICA
+PERGUNTAS E RESPOSTAS
+Secretário Especial da Receita Federal do Brasil
+Robinson Sakiyama Barreirinhas
+Secretária Especial Adjunta da Receita Federal do Brasil
+Adriana Gomes Rêgo - Auditora-Fiscal da Receita Federal do Brasil
+Subsecretária de Tributação e Contencioso da Receita Federal do Brasil (Sutri)
+Cláudia Lúcia Pimentel Martins da Silva - Auditora-Fiscal da Receita Federal do Brasil
+Coordenador-Geral de Tributação (Cosit)
+Rodrigo Augusto Verly de Oliveira - Auditor-Fiscal da Receita Federal do Brasil
+Coordenador de Tributos sobre a Renda, Patrimônio e Operações Financeiras (Cotir)
+Gustavo Salton Rotunno Abreu Lima da Rosa - Auditor-Fiscal da Receita Federal do Brasil
+Chefe da Divisão de Impostos sobre a Renda de Pessoa Física e a Propriedade Rural (Dirpf)
+Newton Raimundo Barbosa da Silva - Auditor-Fiscal da Receita Federal do Brasil
+Chefe da Divisão de Tributos sobre Instituições e Operações Financeiras (Ditif)
+Maria da Consolação Silva - Auditora-Fiscal da Receita Federal do Brasil
+Coordenador de Tributação Internacional (Cotin)
+Daniel Teixeira Prates - Auditor-Fiscal da Receita Federal do Brasil
+Chefe da Divisão de Tributação Internacional (Ditin)
+Ivonete Bezerra de Souza Osti - Auditora-Fiscal da Receita Federal do Brasil
+Equipe Técnica:
+Alexandra Weirich Gruginski - Auditora-Fiscal da Receita Federal do Brasil - Cosit
+Antônio Jordão da Silva Júnior - Analista-Tributário da Receita Federal do Brasil - SRRF09/Diate
+Antônio Marcos Serravalle Santos - Auditor-Fiscal da Receita Federal do Brasil - SRRF08/Disit
+Aparecida Antônia Biguetti Nogara - Auditora-Fiscal da Receita Federal do Brasil - DRF/Maringá
+Beatriz Lacerda Ciampa - Auditora-Fiscal da Receita Federal do Brasil - Derpf/São Paulo
+Diego Wagner Garcia Viale - Auditor-Fiscal da Receita Federal do Brasil - Cosit
+Mirella Figueira Canguçu Pacheco – Auditora-Fiscal da Receita Federal do Brasil - SRRF05/Disit
+Paulo Alexandre Correia Ribeiro - Auditor-Fiscal da Receita Federal do Brasil - Cosit
+Ricardo Silva da Cruz - Auditor-Fiscal da Receita Federal do Brasil - Cosit
+Valéria Guimarães Amarante – Auditora-Fiscal da Receita Federal do Brasil - DRJ07
+Viviane Vidal Wagner – Auditora-Fiscal da Receita Federal do Brasil - Cosit
+William Neri Evangelista – Auditor-Fiscal da Receita Federal do Brasil - Cosit
+É permitida a reprodução total ou parcial deste manual, desde que citada a fonte.
+
+<!-- page: 4 -->
+
+## Página 4
+
+4
+SECRETARIA ESPECIAL DA RECEITA FEDERAL DO BRASIL
+Missão
+Nós administramos o sistema tributário e aduaneiro, contribuindo para o bem-estar
+econômico e social do país.
+Valores
+Integridade. Imparcialidade. Profissionalismo. Transparência. Respeito ao cidadão.
+Lealdade com a instituição
+Princípios de Gestão
+Inovação. Valorização de Pessoas. Eficiência. Cooperação.
+Visão
+Sermos reconhecidos como essenciais ao progresso do país, engajados na
+inovação, na promoção da conformidade tributária e aduaneira e na oferta de
+serviços de excelência à sociedade.
+
+<!-- page: 5 -->
+
+## Página 5
+
+5
+APRESENTAÇÃO
+Este livro contém respostas elaboradas pela Coordenação-Geral de Tributação a
+indagações formuladas por contribuintes e por servidores da Secretaria Especial da Receita
+Federal do Brasil - RFB, principalmente durante o Programa Imposto sobre a Renda – Pessoa
+Física, mantido pela RFB.
+O Perguntas e Respostas 2026 tornou-se possível com a colaboração de diversas
+unidades integrantes da estrutura organizacional da RFB, citadas anteriormente, que cederam
+seus servidores para compor a equipe técnica responsável por sua elaboração.
+Este trabalho destina-se a facilitar o desempenho dos servidores que atuam na
+orientação aos contribuintes pessoas físicas, nele tendo sido considerada a legislação até
+dezembro de 2025. O objetivo principal é fornecer subsídios para apresentação da Declaração de
+Ajuste Anual do Imposto sobre a Renda referente ao exercício de 2026, ano-calendário de 2025,
+em complementação à legislação tributária e aos manuais e instruções do Imposto sobre a Renda
+da Pessoa Física.
+Entretanto, este livro já trata, em questões específicas da redução do imposto sobre a
+renda devido na base de cálculo mensal promovida pela Lei nº 15.270, de 26 de novembro de
+2025, apesar de a sua vigência ocorrer tão somente a partir de 1º de janeiro de 2026.
+
+<!-- page: 6 -->
+
+## Página 6
+
+6
+SUMÁRIO
+ANO-CALENDÁRIO DE 2025, EXERCÍCIO DE 2026
+Nº da
+Pergunta
+OBRIGATORIEDADE DE APRESENTAÇÃO
+Obrigatoriedade
+001
+Pessoa física desobrigada
+002
+Titular ou sócio de empresa
+003
+Quadro societário ou associado de cooperativa
+004
+Responsável por Cadastro Nacional da Pessoa Jurídica - CNPJ - obrigatoriedade de
+declarar
+005
+Limite de idade para declarar
+006
+Bens e direitos - avaliação
+007
+Bens e direitos - atividade rural
+008
+Mais de uma fonte pagadora
+009
+Caderneta de poupança superior a R$ 800.000,00
+010
+Doença grave
+011
+DESCONTO SIMPLIFICADO
+Desconto simplificado - conceito
+Desconto simplificado - dependentes comuns
+012
+013
+Desconto simplificado - quem pode optar
+014
+Mais de uma fonte pagadora
+015
+Prejuízo na atividade rural - desconto simplificado
+016
+Pagamentos e doações efetuados
+017
+Rendimentos isentos - 65 anos ou mais
+018
+Rendimentos Recebidos Acumuladamente - RRA
+019
+Aluguéis
+020
+PRAZO PARA APRESENTAÇÃO
+Declaração de Ajuste Anual - exercício de 2026
+021
+Declarante no exterior
+022
+Contribuinte em viagem na data da apresentação
+023
+MULTA POR ATRASO NA ENTREGA DA DECLARAÇÃO OU NÃO APRESENTAÇÃO
+Multa por atraso ou não apresentação - Contribuinte obrigado a declarar
+024
+Multa por atraso ou não apresentação - Contribuinte não obrigado a declarar
+025
+PREENCHIMENTO IRPF 2026
+Formas de preenchimento do IRPF 2026
+026
+Declaração de Ajuste Anual - Autorização de acesso
+027
+Declaração de Ajuste Anual Pré-Preenchida - Formas de acesso
+028
+Declaração de Ajuste Anual Pré-Preenchida - Informações fornecidas
+029
+Declaração de Ajuste Anual Pré-Preenchida - Quem pode utilizar
+030
+Declaração de Ajuste Anual Pré-Preenchida - Informações incompletas
+031
+“Meu Imposto de Renda” – Vedações à sua utilização
+032
+Obtenção e instalação do programa IRPF 2026
+033
+Equipamento necessário
+034
+
+<!-- page: 7 -->
+
+## Página 7
+
+7
+TRANSMISSAO DA DECLARAÇÃO
+Meios de transmissão da declaração
+035
+Outras informações
+036
+LOCAL DE APRESENTAÇÃO
+Local de apresentação no prazo
+Declaração transmitida com a utilização de certificado digital
+037
+038
+Declarante no exterior
+039
+Apresentação após o prazo
+040
+Agências bancárias autorizadas
+041
+DECLARAÇÃO DE EXERCÍCIOS ANTERIORES
+Declaração e programa de exercícios anteriores
+042
+RETIFICAÇÃO DA DECLARAÇÃO
+Retificação
+043
+Retificação - prazo
+044
+Declaração retificadora - onde apresentar
+045
+Declaração retificadora - troca de opção
+046
+Desconto simplificado - prejuízo na atividade rural
+047
+Retificação - exercícios anteriores
+048
+Declaração do cônjuge - alterações
+049
+Imposto - pagamento
+050
+Imposto - mudança na forma de pagamento
+051
+Aposentado com 65 anos ou mais - isenção
+052
+PDV - programa de desligamento voluntário
+053
+Declaração de bens ou de dívidas e ônus - erros
+054
+COMPROVANTE DE RENDIMENTOS
+Comprovante errado ou não entregue
+055
+Falta de comprovante de fonte pagadora
+056
+Penalidade à fonte pagadora
+057
+CADASTRO DE PESSOAS FÍSICAS
+Não residente
+Dependente - obrigatoriedade de inscrição no Cadastro de Pessoas Físicas - CPF
+Cópia da Declaração de Ajuste Anual
+058
+059
+060
+CÁLCULO E PAGAMENTO DO IMPOSTO
+Cálculo do imposto - tabela
+061
+Base de cálculo
+062
+Pagamento do imposto
+063
+Pagamento das quotas do IRPF
+064
+Local de pagamento das quotas do IRPF
+065
+Formas de pagamento do imposto
+066
+Perda do Darf
+067
+Correção monetária
+068
+RESTITUIÇÃO/COMPENSAÇÃO DO IR
+IR pago indevidamente
+069
+Restituição - crédito em conta-corrente ou de poupança
+070
+
+<!-- page: 8 -->
+
+## Página 8
+
+8
+Restituição - conta conjunta
+071
+Restituição - conta de terceiros
+072
+Restituição - alteração na conta indicada
+073
+Restituição - declarante no exterior
+074
+Restituição - prioridade no recebimento
+075
+Restituição - lotes de pagamento
+076
+SITUAÇÕES INDIVIDUAIS
+Contribuinte casado
+077
+Bens adquiridos em condomínio antes do casamento
+078
+Contribuinte que tenha companheiro(a)
+079
+Contribuinte divorciado que se casou novamente
+080
+Contribuinte separado de fato
+081
+Contribuinte divorciado ou separado judicialmente ou por escritura publica
+082
+Contribuinte viúvo
+083
+Contribuinte menor
+084
+Contribuinte menor emancipado
+085
+Contribuinte incapaz
+086
+DECLARAÇÃO EM CONJUNTO
+Declarante em conjunto - conceito
+087
+Cônjuge ou filho menor (na condição de dependente)
+088
+DECLARAÇÃO EM SEPARADO
+Compensação do IR - bens em condomínio ou comunhão
+089
+ESPÓLIO - CONTRIBUINTE FALECIDO
+Conceito
+090
+Pessoa falecida - imposto sobre a renda devido
+091
+Pessoa falecida - restituição do imposto sobre a renda
+092
+Falecimento - bens a inventariar
+093
+Declarações de espólio
+094
+Declaração final de espólio - obrigatoriedade
+095
+Bens comuns - rendimentos
+096
+Sobrepartilha - bens
+097
+Declaração Final de Espólio - deduções
+098
+Declaração Final de Espólio e declaração de ajuste anual do meeiro - dependentes
+099
+Funeral, taxas, honorários advocatícios - deduções
+100
+Declarações de Espólio - apresentação
+101
+Declaração de Espólio - não residente no Brasil
+102
+Obrigação tributária transferida a herdeiros
+103
+Falecimento de ambos os cônjuges
+104
+Inventário - novos bens antes da partilha
+105
+Inventário - novos bens após a partilha
+106
+Declaração Final de Espólio - prazo de apresentação/pagamento do imposto
+107
+Declaração Final de Espólio - apuração do imposto
+108
+Declaração Final de Espólio - declaração de bens
+109
+Transferência de bens e direitos
+110
+Bens doados em vida
+111
+Moléstia grave - proventos e pensões recebidos pelo espólio ou herdeiros
+112
+EXTERIOR
+Bases da tributação da pessoa física
+113
+
+<!-- page: 9 -->
+
+## Página 9
+
+9
+Residente no Brasil - conceito
+114
+Não residente no Brasil - conceito
+115
+Nova contagem para fins de estabelecer as condições de residente ou de não residente
+116
+Saída temporária - procedimentos
+117
+Saída temporária - tributação
+118
+Saída definitiva - procedimentos
+119
+Saída definitiva e retorno ao Brasil
+120
+Declaração de saída definitiva do país - Apuração do imposto
+121
+Declaração de saída definitiva do país - Restituição do imposto
+122
+Declaração de saída definitiva do país - Base de cálculo
+123
+Declaração de saída definitiva do país - Deduções em moeda estrangeira
+124
+Residente - saída temporária ou definitiva sem apresentação de comunicação
+125
+Regularização fiscal de residentes no exterior
+126
+Não residente - visto temporário
+127
+Brasileiro, não residente, que retorna ao Brasil
+128
+Não residente - rendimentos recebidos no Brasil
+129
+Residente no Brasil - rendimentos do exterior
+130
+Herança. Aquisição de direito por não residente
+131
+Rendimentos de país sem acordo com o Brasil
+132
+Benefícios ou resgates de previdência complementar recebidos por não residente
+133
+Não residente - aposentadoria e pensão recebida no Brasil
+134
+Não residente - rendimentos do trabalho recebidos em reclamatória trabalhista
+135
+Rendimentos oriundos de país que possui acordo com o Brasil
+136
+Estrangeiro - transferência para o Brasil
+137
+Residente - lucros de empresas do exterior
+138
+Conversão em reais - deduções
+139
+Imposto pago no exterior - compensação/conversão
+140
+Imposto pago no exterior - compensação mensal/anual
+141
+Compensação - Alemanha, Estados Unidos e Reino Unido
+142
+Servidor de representação diplomática - não residente
+143
+Funcionário de representação diplomática
+144
+Empregado particular - missão diplomática
+145
+Empregado de empresas estatais estrangeiras no Brasil
+146
+Religiosos, missionários, pesquisadores e professores
+147
+Cientistas, professores e pesquisadores
+148
+Rendimentos recebidos de organizações internacionais por residentes no Brasil
+149
+Pnud
+150
+Agências especializadas da ONU
+151
+Aladi
+152
+OEA
+153
+Organismos especializados da OEA
+154
+AEE
+155
+Ritla do Sela
+156
+Intelsat
+157
+OEI
+158
+Conselho de Cooperação Aduaneira
+159
+Corporação Interamericana de Investimentos
+160
+Novo Banco de Desenvolvimento - NDB
+161
+Ex-funcionário de organização internacional
+162
+Pessoa física a serviço do Brasil no exterior - tributação
+163
+Pessoa física a serviço do Brasil no exterior
+164
+Servidor público em missão no exterior
+165
+Transferência de residência - exterior
+166
+Rendimentos no exterior
+167
+Declaração de bens - pessoa física que passa a ser residente
+168
+
+<!-- page: 10 -->
+
+## Página 10
+
+10
+Trabalho assalariado - Exterior
+169
+Servidor brasileiro no exterior para estudo
+170
+Conversão em reais - rendimentos/imposto/deduções
+171
+Deduções - exterior
+172
+Pensões e aposentadorias - exterior
+173
+Não residente com mais de 65 anos
+174
+Não residente - apresentação da declaração de ajuste anual
+175
+Não residente - lucros/dividendos
+176
+Não residente - ganhos de capital. Regime especial - isenção
+177
+RENDIMENTOS TRIBUTÁVEIS - TRABALHO
+Férias
+178
+Participação dos empregados nos lucros das empresas
+179
+Verbas recebidas por parlamentares
+180
+Bolsa de estudo - contraprestação de serviço
+181
+Residência médica
+182
+Empresa optante pelo Simples Nacional - sócio ou titular
+Microempreendedor Individual - MEI
+183
+184
+Benefícios indiretos
+185
+Horas extras
+186
+Benefícios da previdência complementar
+Seguros - previdência complementar
+187
+188
+Pensão especial de ex-combatente
+189
+Doença grave - pensão por falecimento de funcionário
+190
+Síndico de condomínio
+191
+Prestação de serviço de transporte e assemelhados
+Transportador autônomo residente no Paraguai
+192
+193
+Representante comercial autônomo
+194
+Obra de arte
+195
+Prêmio recebido em bens ou direitos
+196
+Prêmio recebido em concursos e competições
+197
+Prêmio recebido em competições esportivas
+198
+Fonte pagadora que assume o ônus do imposto
+199
+Notas promissórias
+200
+Dívida perdoada em troca de serviços
+201
+Pagamento efetuado em bens
+202
+Rendimentos recebidos em mês posterior
+203
+Acidente de trabalho
+204
+Vantagem pecuniária individual e abono permanência
+205
+Restituição da contribuição previdenciária
+206
+RENDIMENTOS TRIBUTÁVEIS - ALUGUÉIS
+Aluguéis recebidos por residente
+207
+Aluguéis recebidos por não residente
+208
+Aluguéis de imóveis por temporada
+209
+Pagamento ao locador
+210
+Usufruto de rendimentos de aluguéis
+211
+Rendimentos de imóvel cedido
+212
+Locação de espaço em imóveis, inclusive em condomínios
+213
+Benfeitorias - compensação
+214
+Arrendamento de imóvel rural
+215
+Aluguel depositado judicialmente
+216
+Luvas e gratificações pagas ao locador
+217
+Indenização para desocupação do imóvel
+218
+
+<!-- page: 11 -->
+
+## Página 11
+
+11
+Cessão gratuita de imóvel
+219
+Sublocação
+220
+Imóvel pertencente a mais de uma pessoa
+221
+Rendimentos de bens comuns
+222
+RENDIMENTOS TRIBUTÁVEIS — PENSÃO
+Pensão paga por acordo ou decisão judicial a residente no Brasil
+223
+Pensão paga por meio de bens e direitos
+224
+RENDIMENTOS TRIBUTÁVEIS - OUTROS
+Servidão de passagem - indenização
+225
+Laudêmio
+226
+Indenização por morte
+227
+Indenização por danos morais
+228
+Encargo em doação modal
+229
+Rendimentos de empréstimos
+230
+Rendimentos pagos em cumprimento de decisão judicial
+231
+Precatórios
+232
+Representante comercial autônomo
+233
+Pecúlio
+234
+Seguro por inatividade temporária
+235
+Doença grave - rendimento recebido por pessoa física com doença grave
+236
+Doença grave - laudo pericial
+237
+Doença grave - rendimentos recebidos acumuladamente
+238
+Doença grave - militar integrante de reserva
+239
+Rescisão de contrato de trabalho
+240
+FGTS pago pelo ex-empregador
+241
+PDV - tratamento tributário
+242
+PDV - resgate de previdência
+243
+Rendimentos de sócio ou titular de empresa
+Rendimentos pagos ao sócio a título de pró-labore
+244
+245
+Pool hoteleiro
+246
+Lucros na liquidação da massa falida
+247
+Auxílios, prêmio assiduidade e complementação previdenciária
+248
+Benefício especial recebido por servidores públicos federais e membros dos poderes da
+União aposentados
+249
+RENDIMENTOS RECEBIDOS ACUMULADAMENTE (RRA)
+RRA correspondentes ao ano-calendário em curso
+250
+RRA correspondentes a anos-calendário anteriores ao do recebimento
+251
+RRA correspondente a anos-calendário anteriores ao do recebimento – contribuinte com
+65 anos ou mais
+252
+RRA - diferenças salariais de pessoa falecida
+253
+RRA - cessão de precatório
+254
+PESSOA FÍSICA EQUIPARADA A PESSOA JURÍDICA
+Profissional autônomo que paga a outros profissionais
+255
+Equiparação a pessoa jurídica - hipóteses
+256
+Não equiparação a empresa individual
+257
+Equiparação a pessoa jurídica - operações imobiliárias
+258
+Equiparação a pessoa jurídica - operações imobiliárias - prazo
+259
+Equiparação a pessoa jurídica - operações imobiliárias - destino do ativo
+260
+Lucro na criação de venda de cães, gatos etc.
+261
+Escritor que arca com os encargos de impressão
+262
+
+<!-- page: 12 -->
+
+## Página 12
+
+12
+Venda de artesanato e de antiguidades
+263
+Pessoa física que explora atividade econômica
+264
+Profissionais que não constituem sociedade
+265
+CARNÊ-LEÃO
+Carnê-leão - recolhimento
+266
+Carnê-leão - cálculo
+267
+Carnê-leão - décimo terceiro salário pago por governo estrangeiro
+268
+Carnê-leão x recolhimento complementar
+269
+Carnê-leão pago a maior
+270
+Compensação de acréscimos legais
+271
+Pagamento do recolhimento complementar com código do carnê-leão
+272
+Arras
+273
+RENDIMENTOS ISENTOS E NÃO TRIBUTÁVEIS
+Indenização
+274
+Despedida, rescisão de contrato de trabalho, FGTS etc.
+275
+Lucros e dividendos apurados na escrituração em 1993 e de janeiro de 1996 a 31 de
+dezembro de 2025
+276
+Pensão, aposentadoria, reserva remunerada ou reforma
+277
+Aposentadoria ou pensão de mais de uma fonte
+278
+Pensão, aposentadoria, reserva remunerada ou reforma - 13º salário
+279
+Pensionista ou aposentado maior de 65 anos - dependente
+280
+Compensação - isenção - aposentadoria
+281
+Doença grave - isenção e comprovação
+282
+Deficiência física - síndrome da talidomida
+283
+Deficiência decorrente de síndrome congênita associada ao vírus zika
+284
+Doença grave - rendimentos acumulados
+285
+Doença grave - complementação de pensão, reforma ou aposentadoria
+286
+Bolsa de estudos
+287
+PDV de aposentado
+288
+Desaparecidos políticos - indenização
+289
+Indenização de transporte
+290
+Diárias e ajuda de custo
+291
+Parlamentares - passagens, correio, telefone
+292
+Programas de concessão de créditos - Estímulo à solicitação de documento fiscal
+293
+Indenização por ato ilícito praticado por terceiros
+294
+Indenização por danos causados no imóvel locado
+295
+Quitação no Sistema Financeiro da Habitação - SFH - em virtude de invalidez ou
+falecimento
+296
+Restituição do imposto sobre a renda
+297
+Desconto no resgate antecipado de notas promissórias
+298
+Consórcio - falta do bem no mercado
+299
+Transferência entre entidades de previdência complementar
+Entidades de previdência complementar fechada - reversão de valores
+300
+301
+Valores recebidos em pagamento por serviços ambientais
+302
+IMPOSTO SOBRE A RENDA INCIDENTE NA FONTE
+Retenção de IR sobre pagamentos de condomínio
+303
+Multa por rescisão de contrato de aluguel
+304
+Pagamentos por conta e ordem de terceiros
+305
+Vale-brinde
+306
+Remessa ao exterior - manutenção de cônjuge e filhos
+307
+
+<!-- page: 13 -->
+
+## Página 13
+
+13
+Remessa ao exterior - despesa com viagens
+308
+Remessa ao exterior - despesas com educação
+309
+Remessa ao exterior - entidade estrangeira sem fins lucrativos
+310
+Remessa ao exterior - publicações
+311
+Remessa ao exterior - despesas com saúde
+312
+Remessa ao exterior - doações
+313
+Remessas efetuadas por não residente no Brasil
+314
+IMPOSTO SOBRE A RENDA INCIDENTE/RETIDO NA FONTE - TRIBUTAÇÃO
+EXCLUSIVA NA FONTE
+Concursos e sorteios de qualquer espécie - prêmio distribuído sob a forma de bens ou
+serviços
+315
+Aposta conjunta em loteria
+316
+Prêmios em dinheiro
+317
+Prêmios em dinheiro - loterias de apostas de quota fixa (Bets)
+318
+Prêmios em dinheiro - Jogos de bingo
+319
+Juros sobre capital próprio
+320
+Décimo terceiro salário recebido acumuladamente
+321
+IMPOSTO SOBRE A RENDA INCIDENTE/RETIDO NA FONTE - RESPONSABILIDADE
+DA FONTE PAGADORA
+Rendimentos do trabalhador avulso
+322
+Rendimento do operador portuário
+323
+Honorário de perito
+324
+IMPOSTO SOBRE A RENDA INCIDENTE/RETIDO NA FONTE - FALTA DE RETENÇÃO
+Falta de retenção
+325
+Responsabilidade pelo recolhimento - imposto não retido
+326
+Responsabilidade pelo recolhimento - imposto não retido por decisão judicial
+327
+Vencimento - imposto não retido
+328
+Acréscimos legais - imposto não retido
+329
+Ônus do imposto assumido pela fonte pagadora
+330
+DEDUÇÕES - GERAL
+Deduções permitidas
+331
+Deduções do décimo terceiro salário
+332
+DEDUÇÕES - PREVIDÊNCIA
+Contribuição à previdência oficial
+333
+Previdência oficial paga com atraso
+334
+Previdência complementar - limite
+335
+Montepio civil ou militar
+336
+Previdência oficial - trabalhador autônomo
+337
+Contribuição previdenciária de dependente
+338
+Previdência complementar - resgate em curto prazo
+339
+DEDUÇÕES - DEPENDENTES
+Dependentes
+340
+Filho (a) ou enteado (a) cursando escola de ensino médio ou técnica (2º grau)
+341
+Dependente pela lei previdenciária
+342
+Documentação para comprovar a dependência
+343
+Dependente não residente no Brasil
+344
+
+<!-- page: 14 -->
+
+## Página 14
+
+14
+Dependente próprio, declarado pelo outro cônjuge
+345
+Pensão alimentícia - relação de dependência
+346
+Dependência - mudança no ano
+347
+Dependente - falecimento no ano-calendário
+348
+Dependência durante parte do ano
+349
+Filho universitário que faz 25 anos no início do ano
+350
+Crédito educativo
+351
+Dependente que recebe herança ou doação
+352
+Nora - genro
+353
+Irmão, neto ou bisneto
+354
+Sogro (a)
+355
+Menor emancipado
+356
+Menor pobre que não viva com o contribuinte
+357
+DEDUÇÕES - PENSÃO ALIMENTÍCIA
+Pensão alimentícia dedutível
+358
+Pensão alimentícia paga a sogro(a)
+359
+Pagamentos em sentença judicial que excedam a pensão alimentícia
+Pagamentos em sentença judicial - cálculo sobre a remuneração líquida
+Pensão alimentícia - décimo terceiro salário
+360
+361
+362
+Pensão paga por liberalidade
+363
+Pensão descontada de rendimentos isentos
+364
+Pensão alimentícia - sentença estrangeira
+365
+Alimentos compensatórios – despesa não dedutível
+366
+DEDUÇÕES - DESPESAS MÉDICAS
+Despesas médicas dedutíveis
+Despesas médicas dedutíveis - documento comprobatório
+367
+368
+Despesas médicas dedutíveis - recibo receita saúde
+369
+Despesas médicas dedutíveis - recibo não emitido
+370
+Exame de DNA
+Células-tronco oriundas de cordão umbilical
+371
+372
+Internação hospitalar em residência
+373
+Aparelhos e próteses ortopédicas
+374
+Marcapasso
+375
+Parafusos e placas
+376
+Prótese dentária
+377
+Colocação e manutenção de aparelhos ortodônticos
+378
+Lente intraocular
+379
+Transfusão de sangue e exames laboratoriais
+380
+Testes para Covid-19
+381
+Assistente social, massagista e enfermeiro
+382
+Pilates
+383
+Quiropraxia
+384
+Gastos com UTI Móvel
+385
+Exames de aptidão física e mental para carteira nacional de habilitação
+386
+Seguro-saúde
+387
+Despesas médicas - ressarcimento
+Despesas médicas - reembolso no mesmo ano-calendário
+Despesas médicas - reembolso em ano-calendário posterior
+388
+389
+390
+Pessoa com deficiência - despesas com instrução
+Medicamentos
+391
+392
+Dedução de despesa com parto na declaração do marido ou companheiro
+Dedução de despesa com “barriga de  aluguel”
+393
+394
+
+<!-- page: 15 -->
+
+## Página 15
+
+15
+Dedução de despesa com fertilização in vitro
+395
+Despesas médicas com plano de saúde - declaração em separado
+396
+Dedução de despesa com não dependentes na declaração
+397
+Passagem e hospedagem para tratamento médico
+398
+Médico no exterior
+399
+DEDUÇÕES - DESPESAS COM INSTRUÇÃO
+Despesas com instrução - dedução
+400
+Despesas com instrução - limite
+401
+Mensalidades e anuidades
+402
+Educação infantil
+403
+Curso de especialização
+404
+Curso profissionalizante - técnico
+405
+Creche
+406
+Filho ou enteado
+407
+Divórcio ou separação judicial no ano-calendário
+408
+Neto, bisneto, irmão, primo, sobrinho
+409
+Menor pobre
+410
+Despesas com instrução - sentença judicial
+411
+Dissertações e teses
+412
+Enciclopédias, livros, publicações e materiais técnicos
+413
+Cursos preparatórios para concursos ou vestibulares
+414
+Idiomas, música, dança, esportes, corte e costura
+415
+Menor em instituição beneficente
+416
+Contribuição a associações de pais e mestres
+417
+Despesas de instrução - remessa para o exterior
+418
+Viagens e estadas para estudo
+419
+Filho ou enteado que trancou matrícula na faculdade
+420
+Despesas com instrução - auxílio
+421
+Despesas com instrução - ressarcimento
+422
+Crédito educativo
+423
+Construção de escola em imóvel rural
+423
+Matrícula referente ao ano letivo de 2026 efetuada em 2025
+425
+Despesas com instrução - declaração em separado
+426
+DEDUÇÕES - LIVRO-CAIXA
+Utilização do livro-caixa
+427
+Despesas de custeio
+428
+Serviços prestados a pessoas físicas e/ou jurídicas
+429
+Serviços notariais e de registro
+430
+Escrituração do livro-caixa por sistema de processamento eletrônico
+431
+Comprovação das despesas no livro-caixa
+432
+Despesas com transporte, locomoção e combustível
+433
+Aquisição de bens ou direitos
+434
+Arrendamento mercantil e depreciação de bens
+435
+Imóvel utilizado para profissão e residência
+436
+Benfeitorias em imóvel locado
+437
+Livros, jornais, revistas e roupas especiais
+438
+Contribuição a sindicatos e associações
+439
+Pagamentos efetuados a terceiros
+440
+Autônomo - prestação de serviços exclusivamente a pessoa jurídica
+441
+Serviços pagos a terceiros prestados em anos anteriores
+442
+Propaganda da atividade profissional
+443
+Congressos e seminários
+444
+
+<!-- page: 16 -->
+
+## Página 16
+
+16
+DEDUÇÕES - RENDIMENTOS DE ALUGUÉIS
+Exclusões dos rendimentos de aluguéis
+445
+Exclusão dos rendimentos de aluguéis - IPTU
+446
+Despesas com imóvel alugado
+447
+Dedução de aluguel pago
+448
+Exclusão do rendimento de aluguel - condomínio
+449
+DEDUÇÕES - OUTRAS
+Deduções no serviço de transporte
+450
+Doações para partidos políticos e para candidatos
+451
+Advogados e despesas judiciais
+452
+Honorários advocatícios pagos em outros exercícios
+453
+Doações - entidades filantrópicas e de educação
+454
+DEDUÇÕES - IMPOSTO DEVIDO
+Deduções do imposto devido - incentivos
+455
+Deduções do imposto - desconto simplificado
+456
+Contribuição patronal paga à previdência social
+457
+Fundos dos direitos da criança e do adolescente
+458
+DECLARAÇÃO DE BENS E DIREITOS
+Pessoa física equiparada a jurídica para fins fiscais
+459
+Aquisição de bens na união estável
+460
+Conta bancária de mais de uma titularidade
+461
+Bens e direitos comuns - declaração em separado
+Bens e direitos comuns informados na declaração do cônjuge
+462
+463
+Doações recebidas em bens móveis e imóveis
+464
+Doações em dinheiro - Donatário
+465
+Doações em dinheiro - Doador
+466
+Empréstimos a empresas
+467
+Bens comuns - espólio
+468
+Depósito não remunerado - exterior
+469
+Bens em condomínio
+470
+Dependente - primeira declaração
+471
+Moeda estrangeira em espécie - como declarar
+472
+Criptoativos - como declarar
+473
+Aplicação financeira no exterior - como declarar
+474
+Entidades controladas no exterior - como declarar
+475
+Compensação de perdas em aplicações financeiras no exterior
+476
+Veículo - perda total ou roubo
+477
+Herança no exterior
+478
+Bens e direitos no exterior
+479
+Imóvel rural - aquisição no ano-calendário
+480
+Demolição e construção no mesmo terreno
+481
+Consórcio - contemplado
+482
+Consórcio - não contemplado
+483
+Imóvel adquirido/quitado com o Fundo de Garantia do Tempo de Serviço - FGTS
+484
+Contrato de gaveta
+485
+Doação de imóvel - usufruto
+486
+Leasing
+487
+ATIVIDADE RURAL - CONCEITOS GERAIS
+Tributação do resultado da atividade rural
+488
+Forma de apuração do resultado da atividade rural
+489
+Insuficiência de caixa
+490
+
+<!-- page: 17 -->
+
+## Página 17
+
+17
+Livro-caixa eletrônico
+491
+Livro-Caixa Digital do Produtor Rural - LCDPR
+492
+Encerramento de espólio ou saída definitiva - atividade rural
+493
+Inscrição no cadastro de imóveis rurais do Imposto sobre a Propriedade Territorial Rural -
+ITR
+494
+Contratos agrários - tipos e distinção
+495
+Arrendatário e parceiro
+496
+Mais de um contrato de parceria para a mesma unidade
+497
+Rendimentos no usufruto
+498
+Animais em propriedade de terceiros
+499
+Contratos com gado
+500
+Captura in natura do pescado
+501
+Propriedade de mais de um barco pesqueiro
+502
+Hospedagem de animais em haras
+503
+Pasteurização com acondicionamento do leite de terceiros
+504
+Aluguel de pastagem, máquinas e equipamentos
+505
+Rendimento da avicultura
+506
+Turismo rural
+507
+Imóvel rural não explorado com atividade rural
+508
+Venda de árvores plantadas
+509
+Extração de madeira e produção de carvão
+510
+Venda de minério extraído de propriedade rural
+511
+Venda de produtos da atividade rural aos centros de abastecimento
+512
+Herança de imóvel rural com prejuízos
+513
+Rendimentos no curso do inventário
+514
+Adiantamento utilizado para aquisição de bens
+515
+Empréstimos ou financiamentos rurais
+516
+Produtos estocados e ainda não vendidos
+517
+Produção de alevinos e embriões
+518
+Venda de propriedade rural durante o ano-calendário
+519
+Venda de rebanho bovino - ganho de capital
+520
+Atividade rural exercida no exterior
+521
+Atividade rural exercida no Brasil e no exterior
+522
+Atividade rural exercida no Brasil por não residente
+523
+Imposto pago no exterior
+524
+Desobrigação de preencher o demonstrativo da atividade rural
+525
+Alienação de propriedade rural
+526
+Recolhimento complementar
+527
+Valor recebido em produtos rurais por terra cedida
+528
+Transferência de bens e benfeitorias na herança, dissolução da sociedade conjugal ou
+doação
+529
+Alienação de imóvel rural e benfeitorias - conversão por índice de produtos rurais
+530
+Alienação de bem rural - conversão por índice de produtos rurais
+531
+Fundo de Liquidez
+532
+Variação Cambial
+533
+ATIVIDADE RURAL - RECEITAS
+Valor do arrendamento recebido em produtos
+534
+Tripulação de barcos pesqueiros
+535
+Adiantamentos recebidos relativos a produto rural
+536
+Adiantamentos recebidos em anos anteriores
+537
+Devolução de compras
+538
+Cessão de direito de bem destinado à atividade rural
+539
+Valores recebidos de órgãos públicos
+540
+Recebimento de seguro
+541
+
+<!-- page: 18 -->
+
+## Página 18
+
+18
+Nota promissória rural
+542
+Decisão judicial
+543
+Produto rural vendido por cooperativa
+544
+Animais, produtos ou bens rurais entregues para integralização de quotas
+545
+Valor de alienação dos bens ou benfeitorias vendidos
+546
+Documento de venda de bens e benfeitorias
+547
+Venda de bens posteriormente à alienação do imóvel rural
+548
+Venda de produto rural posteriormente à alienação do imóvel rural
+549
+Venda de bens e benfeitorias recebidos em herança, dissolução da sociedade conjugal ou
+doação
+550
+ATIVIDADE RURAL - DESPESAS
+Gastos com assistência à saúde
+551
+Pagamento antecipado do preço - apropriação
+552
+Despesas com veículos
+553
+Aluguel de avião para deslocamento do contribuinte
+554
+Gastos com aeronave
+555
+Aluguel descontado do empregado
+556
+Prestação de serviços da atividade rural
+557
+Despesas ocorridas fora da área rural
+558
+Aquisição de bem por consórcio
+559
+Empréstimos e financiamentos
+560
+Dedução de multas
+561
+ATIVIDADE RURAL - INVESTIMENTOS
+Investimentos
+562
+Aquisição de terra nua
+563
+Gastos com escola e educação
+564
+Adiantamento recebido para pagamento posterior em produtos rurais
+565
+Financiamento rural para aquisição de bens
+566
+Investimento na captura in natura do pescado
+567
+Investimento na exploração da piscicultura
+568
+Gastos com desmatamento de terras
+569
+Aquisição de reprodutores ou matrizes
+570
+Aquisição de quotas ou participações societárias
+Benfeitorias realizadas no imóvel rural
+571
+572
+GANHO DE CAPITAL
+Operações sujeitas à apuração do ganho de capital
+573
+Alíquotas aplicáveis à apuração do ganho de capital
+574
+Isenções do ganho de capital
+575
+Alienação de imóvel residencial para construção de outro imóvel
+576
+Alienação de imóvel residencial - terreno para construção – imóvel na planta - isenção
+577
+Alienação de imóvel residencial - condomínio - isenção
+578
+Alienação de imóvel residencial - isenção
+Não aplicação do produto da venda de imóveis residenciais em 180 dias - isenção
+579
+580
+Alienação de imóvel residencial - isenção - aplicação do produto da venda na quitação de
+empréstimo entre particulares
+581
+Alienação de imóvel residencial - cláusula de incomunicabilidade - sociedade conjugal -
+isenção
+582
+Compensação de prejuízos com ganhos no mês
+583
+Data de aquisição de bens comuns
+Data de aquisição - imóvel resultante de unificação - fusão de matrículas
+Reembolso de bens e direitos - meação e herança
+Atualização do valor de imóvel
+584
+585
+586
+
+<!-- page: 19 -->
+
+## Página 19
+
+19
+587
+Usucapião
+588
+Laudêmio
+589
+Bem originariamente possuído em usufruto e depois em propriedade plena
+590
+Revogação da doação em adiantamento da legítima
+591
+Custo de aquisição
+592
+Cessão do exercício do usufruto
+Alienação do único imóvel - isenção
+Cessão de precatório
+593
+594
+595
+Imóvel vendido em partes, em datas diferentes
+596
+Contrato com cláusula de rescisão
+Alienação de imóvel residencial com posterior recompra
+597
+598
+Contrato compra e venda - parcela de receita obtida com lavra de recursos minerais
+599
+Rescisão de contrato de promessa de compra e venda
+600
+Participações societárias - alienação sem preço predeterminado
+601
+Participações societárias - alienação sem preço predeterminado - tributação da parcela
+inicial do preço e do valor complementar
+602
+Incorporação de ações
+603
+Transferência de bens para integralização de capital
+604
+Transferência de bens para integralização de capital - ganho de capital
+605
+Dissolução de sociedade - transferência de bens
+606
+Dissolução da sociedade conjugal ou da união estável - transferência de bens
+607
+Dissolução da sociedade conjugal ou da união estável - pagamento do imposto
+608
+Herança ou legado
+609
+Cônjuge sobrevivente - meação - valor do bem ou direito recebido
+610
+Cônjuge sobrevivente - herança - valor do bem ou direito recebido
+611
+Prazo de recolhimento no caso de herança ou legado
+612
+Doação de bens ou direitos a terceiros
+613
+Doação - valor do custo de aquisição
+614
+Prazo - doação em adiantamento da legítima
+615
+Alienação com recebimento parcelado em bens móveis
+616
+Cláusulas pro soluto ou pro solvendo
+617
+Alienação com dívida quitada com desconto
+618
+Notas promissórias correspondentes às prestações
+619
+Doação de notas promissórias
+620
+Alienação condicionada à aprovação de financiamento
+621
+Contrato particular de bem financiado pelo Sistema Financeiro da Habitação - SFH
+622
+Doação entre cônjuges
+623
+Bens recebidos por concursos, sorteios e outros
+624
+Transferência de titularidade de quotas de capital
+625
+Alienações efetuadas pelos cônjuges
+626
+Cessão de direitos hereditários
+627
+Cessão de direitos sobre imóveis - desistência - devolução de parcelas recebidas
+628
+Alienação efetuada durante inventário
+629
+Dação em pagamento efetuada com imóvel
+630
+Arrendamento mercantil - leasing
+631
+Permuta de unidades imobiliárias
+632
+Permuta de uma unidade por duas ou mais
+633
+Permuta com pagamento de torna em dinheiro
+634
+Permuta entre bens móveis e imóveis
+635
+Permuta de imóveis rurais
+636
+Permuta com pessoa jurídica
+637
+Dação da unidade imobiliária em pagamento
+638
+Residente no Brasil - bens, direitos e aplicações financeiras adquiridos em moeda
+estrangeira ou no exterior
+639
+
+<!-- page: 20 -->
+
+## Página 20
+
+20
+Aplicação financeira no exterior. Ganho de capital
+640
+Isenção em aplicações financeiras no exterior
+641
+Conta remunerada no exterior
+642
+Alienação de moeda estrangeira mantida em espécie
+643
+Moeda estrangeira representada por cheques de viagem
+644
+Depósitos de moeda estrangeira em conta-corrente, cartões de crédito ou débito no
+exterior
+645
+Aplicações financeiras em moeda estrangeira - regras até 31/12/2023
+646
+Atualização do valor dos bens e direitos no exterior - Abex – Lei nº 14.754, de 2023
+647
+Atualização de bens imóveis - Dabim - Lei nº 14.973, de 2023
+648
+Cálculo do ganho de capital - Bens imóveis atualizados pela Dabim
+649
+Atualização de bens e imóveis - Rearp atualização - Deap - Lei nº 15.265, de 2025
+650
+Atualização de bens e imóveis - Bens Permitidos - Rearp atualização - Deap - Lei nº
+15.265, de 2025
+651
+Atualização de bens e imóveis - Prazo e forma da opção - Rearp atualização - Deap - Lei
+nº 15.265, de 2025
+652
+Alienação de criptoativos
+653
+Venda de pedras e metais preciosos
+654
+Não residente - bens no Brasil
+655
+Redução sobre o ganho de capital
+656
+Edificação em terreno alheio - redução do ganho de capital
+657
+Imóvel construído após aquisição do terreno - redução
+658
+Desapropriação
+659
+Imóvel rural
+660
+Terra nua - ganho de capital
+661
+Valor da Terra Nua - VTN - de compra e alienação idênticos
+662
+Aquisição e/ou alienação sem apuração do Valor da Terra Nua - VTN)
+663
+Consórcio
+664
+Único imóvel - aquisição de outro por contrato particular
+665
+Alienações diversas - aplicabilidade da isenção
+Alienações diversas - aplicabilidade de redução
+666
+667
+Valor da alienação recebido parceladamente
+668
+Venda parcelada de imóvel - cláusulas de correção
+669
+Bens adquiridos até 1995 pela primeira vez declarados
+670
+Despesas que integram o custo de aquisição
+671
+Alienação de bens comuns - isenção do único imóvel
+672
+Bem de pequeno valor - condomínio
+673
+Saldo devedor do Sistema Financeiro da Habitação - SFH - custo de aquisição
+674
+Programa de arrendamento residencial - custo de aquisição
+675
+Valor da Terra Nua - VTN do Diat menor que valor de venda da terra nua
+676
+Títulos de investimento coletivo
+677
+Passe de atleta
+678
+Bem de pequeno valor
+679
+Instrumentos financeiros no exterior - Mercado Forex - Bens e direitos de pequeno valor -
+Isenção
+680
+Permuta com recebimento de torna em dinheiro
+681
+Imóvel adquirido pelo Sistema Financeiro da Habitação - SFH ou em consórcio
+682
+Alienação do único imóvel
+683
+Isenção único imóvel. Comercial
+684
+Isenção único imóvel. Imóvel adquirido por dação em pagamento
+685
+Único imóvel - copropriedade
+686
+Bem indivisível - Copropriedade - Alienação judicial
+687
+Unificação de terrenos contíguos
+688
+Alienação de parte do imóvel
+689
+Ativos recebidos - dissolução sociedade conjugal
+690
+Pagamento do IR - dissolução sociedade conjugal
+691
+
+<!-- page: 21 -->
+
+## Página 21
+
+21
+Doação em adiantamento da legítima - tratamento
+692
+Alienação de terreno para empreendimento imobiliário - pagamento parcelado - preço de
+alienação indeterminado
+693
+Alienação de imóvel - pagamento em unidades imobiliárias a construir
+694
+INCORPORAÇÃO E LOTEAMENTO
+Incorporação de prédios em condomínio
+695
+Construções abrangidas pelas incorporações imobiliárias
+696
+Incorporador
+697
+Loteamento e desmembramento de terrenos
+698
+Pessoa física equiparada à jurídica
+699
+Falecimento de incorporador
+700
+ACRÉSCIMO PATRIMONIAL
+Rendas consideradas consumidas e deduções sem comprovação
+701
+Empréstimo - Mútuo
+702
+Transações ilícitas
+703
+APLICAÇÕES FINANCEIRAS — RENDA FIXA E RENDA VARIÁVEL
+Ganho líquido
+Day trade - conceito
+704
+705
+Operações em bolsa - alíquota/incidência do IR
+706
+Operações em bolsa - isenção
+707
+Operações em bolsa - deduções
+708
+Operações em bolsa - compensação de perdas
+709
+Operações em bolsa - compensação de perdas com ganhos de meses anteriores
+710
+Prejuízo em dezembro - compensação
+711
+Day trade - imposto sobre a renda incidente na fonte
+712
+Day trade - responsável pela retenção do IR
+713
+Day trade - compensação do IR
+714
+Day trade - compensação do IR no ano-calendário seguinte
+715
+Alienação de ações - operações realizadas fora de bolsa
+716
+Compensação - operações realizadas dentro e fora de bolsa
+717
+Mercado à vista - ganho líquido
+718
+Mercado à vista - custo dos ativos
+719
+Mercado à vista - custo de ações de mesma espécie custodiadas em diferentes
+instituições
+720
+Custo de bonificações
+721
+Custo de aquisição - ações desdobradas
+722
+Ganho líquido - mercado a termo
+723
+Ganho líquido - mercado de opções
+724
+Ganho líquido - exercício de opções de compra
+725
+Ganho líquido - exercício de opções de venda
+726
+Prêmio - não exercício ou encerramento da opção
+727
+Ganho líquido - mercado futuro
+728
+Demonstrativo de Apuração de Ganhos - Renda Variável - obrigatoriedade
+729
+Prazo - pagamento do IR
+730
+Ganhos em operações em bolsa - Declaração de Ajuste Anual
+731
+Fundos de ações
+732
+Operações realizadas por não residente
+733
+Aplicação financeira
+734
+Compensação do imposto sobre a renda retido na fonte em aplicação financeira
+735
+Fundos de renda fixa
+736
+Aplicação em bolsa feita por duas ou mais pessoas
+737
+
+<!-- page: 22 -->
+
+## Página 22
+
+22
+Rendimentos isentos ou tributados à alíquota zero
+738
+Títulos de capitalização
+739
+Ganhos - compra e venda de ouro
+740
+Rendimentos - conta de depósito de poupança
+741
+Conta de depósito de poupança - menor de idade
+742
+Juros de poupança - não residente
+743
+Ações leiloadas - Programa Nacional de Desestatização
+744
+Alienação de ações em bolsa - liquidação no mês subsequente
+745
+
+<!-- page: 23 -->
+
+## Página 23
+
+23
 OBRIGATORIEDADE DE APRESENTAÇÃO
 OBRIGATORIEDADE
 001 — Quem está obrigado a apresentar a Declaração de Ajuste Anual relativa ao exercício de 2026,
