@@ -8,6 +8,7 @@ from app.core.config import get_settings
 from app.schemas.chat import ChatRequest, ChatResponse, HealthResponse
 from app.services.llm_service import LLMRateLimitError, LLMServiceError
 from app.services.rag_service import RagService, RagServiceError
+from app.services.memory_service import memory_service
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -46,7 +47,14 @@ def chat(payload: ChatRequest, response: Response) -> ChatResponse:
         service = RagService(settings)
         logger.info("chat.rag.initialized request_id=%s", request_id)
 
-        answer, sources, model_used = service.answer(payload.question)
+        history = memory_service.get_history(payload.session_id) if payload.session_id else []
+
+        answer, sources, model_used = service.answer(payload.question, history)
+        
+        if payload.session_id:
+            memory_service.add_message(payload.session_id, "user", payload.question)
+            memory_service.add_message(payload.session_id, "assistant", answer)
+
         elapsed_ms = round((perf_counter() - started_at) * 1000, 2)
         logger.info(
             "chat.request.completed request_id=%s model=%s sources=%s elapsed_ms=%s",

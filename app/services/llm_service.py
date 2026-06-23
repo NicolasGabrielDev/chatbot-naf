@@ -30,7 +30,7 @@ class LLMService:
     def model_used(self) -> str:
         return self.settings.llm_model
 
-    def generate_answer(self, question: str, context: str, system_prompt: str) -> str:
+    def generate_answer(self, question: str, context: str, system_prompt: str, history: list[dict] = None) -> str:
         if not context.strip():
             logger.info("llm.generate.skipped_empty_context")
             return _fallback_answer()
@@ -44,9 +44,9 @@ class LLMService:
                 len(context),
             )
             if self.settings.llm_provider == "openai":
-                answer = self._generate_openai(question, context, system_prompt)
+                answer = self._generate_openai(question, context, system_prompt, history)
             else:
-                answer = self._generate_gemini(question, context, system_prompt)
+                answer = self._generate_gemini(question, context, system_prompt, history)
             logger.info("llm.generate.completed provider=%s answer_length=%s", self.settings.llm_provider, len(answer))
             return answer
         except Exception as exc:
@@ -156,17 +156,21 @@ class LLMService:
         logger.info("llm.embeddings.query.completed provider=gemini dimensions=%s", len(embedding))
         return embedding
 
-    def _generate_openai(self, question: str, context: str, system_prompt: str) -> str:
-        return self._generate_openai_raw(system_prompt, _build_user_prompt(question, context))
+    def _generate_openai(self, question: str, context: str, system_prompt: str, history: list[dict] = None) -> str:
+        return self._generate_openai_raw(system_prompt, _build_user_prompt(question, context), history=history)
 
-    def _generate_openai_raw(self, system_prompt: str, user_prompt: str, json_response: bool = False) -> str:
+    def _generate_openai_raw(self, system_prompt: str, user_prompt: str, json_response: bool = False, history: list[dict] = None) -> str:
         client = OpenAI(api_key=self.settings.openai_api_key)
+        
+        messages = [{"role": "system", "content": system_prompt}]
+        if history:
+            for msg in history:
+                messages.append({"role": msg["role"], "content": msg["content"]})
+        messages.append({"role": "user", "content": user_prompt})
+
         request = {
             "model": self.settings.llm_model,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
+            "messages": messages,
             "temperature": 0.2,
         }
         if json_response:
@@ -177,22 +181,37 @@ class LLMService:
         )
         return response.choices[0].message.content or _fallback_answer()
 
-    def _generate_gemini(self, question: str, context: str, system_prompt: str) -> str:
-        return self._generate_gemini_raw(system_prompt, _build_user_prompt(question, context))
+    def _generate_gemini(self, question: str, context: str, system_prompt: str, history: list[dict] = None) -> str:
+        return self._generate_gemini_raw(system_prompt, _build_user_prompt(question, context), history=history)
 
-    def _generate_gemini_raw(self, system_prompt: str, user_prompt: str, json_response: bool = False) -> str:
+    def _generate_gemini_raw(self, system_prompt: str, user_prompt: str, json_response: bool = False, history: list[dict] = None) -> str:
         genai.configure(api_key=self.settings.gemini_api_key)
         model = genai.GenerativeModel(
             model_name=self.settings.llm_model,
             system_instruction=system_prompt,
         )
-        if json_response:
-            response = model.generate_content(
-                user_prompt,
-                generation_config={"response_mime_type": "application/json"},
-            )
+        
+        if history:
+            gemini_history = []
+            for msg in history:
+                role = "user" if msg["role"] == "user" else "model"
+                gemini_history.append({"role": role, "parts": [msg["content"]]})
+            chat = model.start_chat(history=gemini_history)
+            if json_response:
+                response = chat.send_message(
+                    user_prompt,
+                    generation_config={"response_mime_type": "application/json"},
+                )
+            else:
+                response = chat.send_message(user_prompt)
         else:
-            response = model.generate_content(user_prompt)
+            if json_response:
+                response = model.generate_content(
+                    user_prompt,
+                    generation_config={"response_mime_type": "application/json"},
+                )
+            else:
+                response = model.generate_content(user_prompt)
         return response.text or _fallback_answer()
 
     def _embedding_model_used(self) -> str:

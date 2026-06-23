@@ -146,7 +146,7 @@ class RagService:
             logger.exception("rag.search.failed")
             raise RagServiceError(f"Falha na busca semântica: {exc}") from exc
 
-    def answer(self, question: str) -> tuple[str, list[Source], str]:
+    def answer(self, question: str, history: list[dict] = None) -> tuple[str, list[Source], str]:
         logger.info("rag.answer.started")
         self.settings.validate_runtime()
         indexed_count = self.collection.count()
@@ -167,7 +167,7 @@ class RagService:
             len(context),
             len(system_prompt),
         )
-        answer = self.llm_service.generate_answer(question, context, system_prompt)
+        answer = self.llm_service.generate_answer(question, context, system_prompt, history)
         logger.info("rag.answer.completed answer_length=%s", len(answer))
         return answer, sources, self.llm_service.model_used
 
