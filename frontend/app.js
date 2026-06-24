@@ -5,6 +5,7 @@ const initialQuestions = [
 ];
 
 const state = {
+  sessionId: crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2),
   messages: [
     {
       role: "assistant",
@@ -157,7 +158,7 @@ async function submitQuestion(rawQuestion) {
     const response = await fetch("/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question }),
+      body: JSON.stringify({ question, session_id: state.sessionId }),
     });
 
     const data = await response.json();
