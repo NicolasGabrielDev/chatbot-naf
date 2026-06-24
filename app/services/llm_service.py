@@ -55,6 +55,37 @@ class LLMService:
                 raise LLMRateLimitError("Limite temporário do provedor de IA atingido.") from exc
             raise LLMServiceError(f"Falha na chamada da LLM: {exc}") from exc
 
+    def generate_short_answer(self, question: str, history: list[dict] = None) -> str:
+        system_prompt = (
+            "Você é um assistente fiscal especializado em Imposto de Renda para cidadãos comuns. "
+            "Responda em português do Brasil, com linguagem simples e direta. "
+            "A mensagem do usuário é curta, vaga ou sem contexto suficiente. "
+            "Não use regras fiscais específicas, não invente prazos, valores, deduções ou obrigações. "
+            "Se faltar contexto, peça uma informação objetiva para entender a situação. "
+            "Se for apenas cumprimento, cumprimente brevemente e peça a dúvida sobre Imposto de Renda. "
+            "Mantenha a resposta curta."
+        )
+        user_prompt = f"Mensagem do usuário: {question}"
+
+        try:
+            logger.info(
+                "llm.generate_short.started provider=%s model=%s question_length=%s",
+                self.settings.llm_provider,
+                self.settings.llm_model,
+                len(question),
+            )
+            if self.settings.llm_provider == "openai":
+                answer = self._generate_openai_raw(system_prompt, user_prompt, history=history)
+            else:
+                answer = self._generate_gemini_raw(system_prompt, user_prompt, history=history)
+            logger.info("llm.generate_short.completed provider=%s answer_length=%s", self.settings.llm_provider, len(answer))
+            return answer
+        except Exception as exc:
+            logger.exception("llm.generate_short.failed provider=%s model=%s", self.settings.llm_provider, self.settings.llm_model)
+            if _is_rate_limit_error(exc):
+                raise LLMRateLimitError("Limite temporário do provedor de IA atingido.") from exc
+            raise LLMServiceError(f"Falha na chamada da LLM: {exc}") from exc
+
     def classify_topics(self, question: str, topics: list[dict]) -> list[str]:
         simplified_question = simplify_question(question)
         catalog = [
@@ -67,11 +98,16 @@ class LLMService:
         ]
         system_prompt = (
             "Classifique uma dúvida sobre Imposto de Renda usando somente o catálogo fornecido. "
-            "Retorne JSON no formato {\"topic_ids\": [\"001\"]}. "
-            "Selecione de um a três temas diretamente relacionados, priorizando o tema mais geral quando "
-            "a pergunta pedir um conceito. Nunca invente IDs."
+            "Retorne apenas JSON no formato {\"topic_ids\": [\"001\"]}. "
+            "Prefira temas específicos sobre temas gerais quando a pergunta for direta. "
+            "Use no máximo dois IDs para perguntas objetivas e use três IDs somente quando a pergunta "
+            "envolver múltiplos conceitos claramente distintos. "
+            "Quando a pergunta pedir um conceito amplo, selecione o tema mais geral adequado. "
+            "Se nenhum tema do catálogo se encaixar perfeitamente, retorne o ID do tema mais próximo. "
+            "Nunca invente IDs e nunca retorne IDs que não existam no catálogo."
         )
         user_prompt = (
+            f"Pergunta original: {question}\n"
             f"Pergunta simplificada: {simplified_question}\n\n"
             f"Catálogo de temas: {json.dumps(catalog, ensure_ascii=False)}"
         )

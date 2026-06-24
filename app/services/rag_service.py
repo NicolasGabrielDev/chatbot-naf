@@ -10,11 +10,8 @@ from app.core.config import Settings
 from app.schemas.chat import Source
 from app.services.context_loader import load_context_sections
 from app.services.llm_service import LLMService, LLMServiceError
-from app.services.topic_catalog import load_topic_catalog, pages_for_topics
 
 logger = logging.getLogger(__name__)
-SEARCH_CANDIDATE_MULTIPLIER = 10
-MAX_SEARCH_CANDIDATES = 50
 SEARCH_TOKEN_PATTERN = re.compile(r"[a-z0-9]{3,}")
 SEARCH_STOP_WORDS = {
     "como",
@@ -99,52 +96,29 @@ class RagService:
 
     def search(self, question: str) -> list[Source]:
         try:
-            topics = load_topic_catalog(self.settings.topic_index_path)
-            topic_ids = self.llm_service.classify_topics(question, topics)
-            related_pages = pages_for_topics(topics, topic_ids)
-            page_filter = {"page": {"$in": related_pages}}
-            logger.info("rag.search.topics_selected ids=%s pages=%s", topic_ids, related_pages)
-            indexed_documents = self.collection.get(
-                where=page_filter,
-                include=["documents", "metadatas"],
-            )
-            lexical_candidates = [
-                Source(content=document, metadata=metadata or {})
-                for document, metadata in zip(
-                    indexed_documents.get("documents", []),
-                    indexed_documents.get("metadatas", []),
-                )
-            ]
-            if not lexical_candidates:
-                raise RagServiceError("Nenhum trecho indexado foi encontrado nas páginas dos temas selecionados.")
-
-            logger.info("rag.search.embedding_query.started question_length=%s", len(question))
-            query_embedding = self.llm_service.embed_query(question)
-            logger.info("rag.search.embedding_query.completed dimensions=%s", len(query_embedding))
-            candidate_count = min(
-                len(lexical_candidates),
-                max(self.settings.top_k * SEARCH_CANDIDATE_MULTIPLIER, self.settings.top_k),
-                MAX_SEARCH_CANDIDATES,
-            )
-            result = self.collection.query(
-                query_embeddings=[query_embedding],
-                n_results=candidate_count,
-                where=page_filter,
-                include=["documents", "metadatas", "distances"],
-            )
-            documents = result.get("documents", [[]])[0]
-            metadatas = result.get("metadatas", [[]])[0]
-            distances = result.get("distances", [[]])[0]
-            candidates = [
-                Source(content=document, metadata=metadata or {}, distance=distance)
-                for document, metadata, distance in zip(documents, metadatas, distances)
-            ]
-            return _merge_search_results(question, lexical_candidates, candidates, self.settings.top_k)
+            return self._global_vector_search(question)
         except LLMServiceError:
             raise
         except Exception as exc:
             logger.exception("rag.search.failed")
             raise RagServiceError(f"Falha na busca semântica: {exc}") from exc
+
+    def _global_vector_search(self, question: str) -> list[Source]:
+        logger.info("rag.search.embedding_query.started question_length=%s", len(question))
+        query_embedding = self.llm_service.embed_query(question)
+        logger.info("rag.search.embedding_query.completed dimensions=%s", len(query_embedding))
+        result = self.collection.query(
+            query_embeddings=[query_embedding],
+            n_results=self.settings.top_k,
+            include=["documents", "metadatas", "distances"],
+        )
+        documents = result.get("documents", [[]])[0]
+        metadatas = result.get("metadatas", [[]])[0]
+        distances = result.get("distances", [[]])[0]
+        return [
+            Source(content=document, metadata=metadata or {}, distance=distance)
+            for document, metadata, distance in zip(documents, metadatas, distances)
+        ]
 
     def answer(self, question: str, history: list[dict] = None) -> tuple[str, list[Source], str]:
         logger.info("rag.answer.started")

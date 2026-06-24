@@ -4,7 +4,8 @@ import unittest
 from pathlib import Path
 
 from app.schemas.chat import Source
-from app.services.llm_service import LLMRateLimitError
+from app.services.direct_answer_service import answer_direct_question, should_answer_without_rag
+from app.services.llm_service import LLMServiceError
 from app.services.rag_service import RagService, _is_low_value_section, _merge_search_results, _rerank_sources
 
 
@@ -35,7 +36,7 @@ class FakeCollection:
             "metadatas": [{"source": "contexto-teste.md", "page": 12, "chunk": 0}],
         }
 
-    def query(self, query_embeddings, n_results, where, include):
+    def query(self, query_embeddings, n_results, include, where=None):
         self.where = where
         return {
             "documents": [["O contribuinte deve declarar bens e direitos, incluindo imóveis."]],
@@ -54,18 +55,15 @@ class FakeLLMService:
     def embed_query(self, text: str) -> list[float]:
         return [0.1, 0.2, 0.3]
 
-    def classify_topics(self, question: str, topics: list[dict]) -> list[str]:
-        return ["001"]
-
-    def generate_answer(self, question: str, context: str, system_prompt: str) -> str:
+    def generate_answer(self, question: str, context: str, system_prompt: str, history: list[dict] = None) -> str:
         self.context_received = context
         self.system_prompt_received = system_prompt
         return "Resposta baseada no contexto recuperado."
 
 
-class RateLimitedLLMService(FakeLLMService):
-    def classify_topics(self, question: str, topics: list[dict]) -> list[str]:
-        raise LLMRateLimitError("Limite temporário do provedor de IA atingido.")
+class EmbeddingFailingLLMService(FakeLLMService):
+    def embed_query(self, text: str) -> list[float]:
+        raise LLMServiceError("Falha no embedding.")
 
 
 class ContextFlowTest(unittest.TestCase):
@@ -104,9 +102,9 @@ class ContextFlowTest(unittest.TestCase):
             self.assertEqual(sources[0].metadata["page"], 12)
             self.assertIn("imóveis", service.llm_service.context_received)
             self.assertEqual(service.llm_service.system_prompt_received, "Use apenas o contexto recuperado.")
-            self.assertEqual(service.collection.where, {"page": {"$in": [12]}})
+            self.assertIsNone(service.collection.where)
 
-    def test_search_preserves_provider_rate_limit_error(self) -> None:
+    def test_search_uses_global_vector_search_without_topic_classification(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             topic_index_path = Path(temp_dir) / "context_index.json"
             topic_index_path.write_text(
@@ -116,9 +114,22 @@ class ContextFlowTest(unittest.TestCase):
             service = RagService.__new__(RagService)
             service.settings = FakeSettings(Path(temp_dir) / "prompt.md", topic_index_path)
             service.collection = FakeCollection()
-            service.llm_service = RateLimitedLLMService()
+            service.llm_service = FakeLLMService()
 
-            with self.assertRaises(LLMRateLimitError):
+            sources = service.search("Pergunta")
+
+            self.assertEqual(len(sources), 1)
+            self.assertIn("imóveis", sources[0].content)
+            self.assertIsNone(service.collection.where)
+
+    def test_search_preserves_embedding_error(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            service = RagService.__new__(RagService)
+            service.settings = FakeSettings(Path(temp_dir) / "prompt.md", Path(temp_dir) / "context_index.json")
+            service.collection = FakeCollection()
+            service.llm_service = EmbeddingFailingLLMService()
+
+            with self.assertRaises(LLMServiceError):
                 service.search("Pergunta")
 
     def test_rerank_prioritizes_declaration_requirement(self) -> None:
@@ -178,6 +189,40 @@ class ContextFlowTest(unittest.TestCase):
         section = "SUMÁRIO\nObrigatoriedade 23\nRestituição 48"
 
         self.assertTrue(_is_low_value_section(section))
+
+    def test_direct_answer_explains_it_does_not_replace_accountant(self) -> None:
+        answer = answer_direct_question("Você substitui um contador?")
+
+        self.assertIsNotNone(answer)
+        self.assertIn("não substituo um contador", answer.lower())
+
+    def test_direct_answer_ignores_regular_tax_question(self) -> None:
+        answer = answer_direct_question("Quem precisa declarar Imposto de Renda?")
+
+        self.assertIsNone(answer)
+
+    def test_direct_answer_handles_assistant_scope_question(self) -> None:
+        questions = ["Você pode me recomendar um contador?"]
+
+        for question in questions:
+            with self.subTest(question=question):
+                self.assertIsNotNone(answer_direct_question(question))
+
+    def test_direct_answer_handles_short_unclear_messages(self) -> None:
+        questions = ["oi", "aluguel?", "e o aluguel?", "pix?"]
+
+        for question in questions:
+            with self.subTest(question=question):
+                self.assertTrue(should_answer_without_rag(question))
+                self.assertIsNone(answer_direct_question(question))
+
+    def test_direct_answer_allows_short_declaration_questions(self) -> None:
+        questions = ["Tenho que declarar?", "Preciso declarar?", "Sou obrigado a fazer IR?"]
+
+        for question in questions:
+            with self.subTest(question=question):
+                self.assertFalse(should_answer_without_rag(question))
+                self.assertIsNone(answer_direct_question(question))
 
 
 if __name__ == "__main__":

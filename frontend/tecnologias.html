@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tecnologias e decisões - Assistente Virtual Fiscal</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="gov-strip" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <header class="header">
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-icon" aria-hidden="true">CEFET</span>
+          <span>
+            <strong>Assistente Virtual Fiscal</strong>
+            <small>CEFET Varginha</small>
+          </span>
+        </div>
+        <div class="local-mark" aria-label="Referência visual à cidade de Varginha">
+          <span aria-hidden="true">ET</span>
+        </div>
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="/">Início</a>
+          <a href="/#sobre">Sobre</a>
+          <a href="/tecnologias.html" aria-current="page">Tecnologias</a>
+          <a href="https://www.gov.br/receitafederal" target="_blank" rel="noopener noreferrer">Fonte oficial</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main technology-page" id="conteudo">
+      <section class="intro">
+        <h1>Tecnologias, decisões e parametrizações</h1>
+        <p>Resumo técnico do projeto conforme os arquivos atuais do repositório.</p>
+      </section>
+
+      <section class="about technology-summary" aria-label="Resumo do projeto">
+        <div>
+          <span class="section-label">Aplicação</span>
+          <h2>Chatbot fiscal com RAG local</h2>
+          <p>
+            O projeto combina uma API JSON em FastAPI, serviços Python para IA e recuperação de contexto, ChromaDB
+            persistido em disco e uma interface web estática servida pelo próprio backend.
+          </p>
+        </div>
+        <div class="metric-grid" aria-label="Indicadores dos arquivos de contexto">
+          <div class="metric-item">
+            <strong>340</strong>
+            <span>páginas no PDF</span>
+          </div>
+          <div class="metric-item">
+            <strong>737</strong>
+            <span>temas catalogados</span>
+          </div>
+          <div class="metric-item">
+            <strong>19.054</strong>
+            <span>linhas em contexto Markdown</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid" aria-label="Tecnologias utilizadas">
+        <article class="info-card">
+          <span class="section-label">Backend</span>
+          <h2>Python e FastAPI</h2>
+          <p>
+            A API é criada em <code>app/main.py</code>, registra as rotas de <code>app/api/routes.py</code> e serve os
+            arquivos de <code>frontend/</code> com <code>StaticFiles</code>.
+          </p>
+          <ul class="detail-list">
+            <li><code>GET /health</code> retorna o status da API.</li>
+            <li><code>POST /chat</code> recebe a pergunta e retorna resposta, fontes e modelo usado.</li>
+            <li>Pydantic valida a entrada, saída e variáveis de configuração.</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <span class="section-label">Frontend</span>
+          <h2>HTML, CSS e JavaScript</h2>
+          <p>
+            A interface principal fica em <code>frontend/index.html</code>, <code>frontend/app.js</code> e
+            <code>frontend/styles.css</code>, sem framework de frontend.
+          </p>
+          <ul class="detail-list">
+            <li>Componentes são funções JavaScript simples.</li>
+            <li>O chat envia mensagens para <code>/chat</code> via <code>fetch</code>.</li>
+            <li>A sessão usa <code>crypto.randomUUID()</code> quando disponível.</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <span class="section-label">IA</span>
+          <h2>OpenAI ou Gemini</h2>
+          <p>
+            O serviço <code>LLMService</code> seleciona o provedor por variável de ambiente e centraliza geração de
+            resposta, classificação temática e embeddings externos quando configurados.
+          </p>
+          <ul class="detail-list">
+            <li><code>LLM_PROVIDER</code> aceita <code>openai</code> ou <code>gemini</code>.</li>
+            <li><code>LLM_MODEL</code> define o modelo de resposta.</li>
+            <li>Erros de cota são tratados com resposta HTTP <code>429</code>.</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <span class="section-label">RAG</span>
+          <h2>ChromaDB e embeddings</h2>
+          <p>
+            O contexto é dividido em chunks, convertido em embeddings e salvo em uma coleção local do ChromaDB no
+            diretório <code>app/vectorstore</code>.
+          </p>
+          <ul class="detail-list">
+            <li>O padrão atual usa embedding local por hashing.</li>
+            <li><code>TOP_K</code> limita a quantidade de trechos recuperados.</li>
+            <li>A implementação atual consulta a coleção de forma vetorial global.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="about">
+        <span class="section-label">Fluxo</span>
+        <h2>Como uma pergunta é processada</h2>
+        <ol class="timeline-list">
+          <li>A API valida a pergunta e registra um <code>X-Request-ID</code>.</li>
+          <li>Perguntas diretas sobre escopo ou contador podem receber resposta local.</li>
+          <li>Mensagens curtas ou vagas podem receber uma resposta curta do provedor configurado.</li>
+          <li>Para perguntas fiscais, o RAG consulta o ChromaDB usando embedding da pergunta.</li>
+          <li>Os trechos recuperados e o prompt de sistema são enviados ao modelo.</li>
+          <li>A resposta final retorna em JSON com fontes e modelo utilizado.</li>
+        </ol>
+      </section>
+
+      <section class="content-grid" aria-label="Decisões de implementação">
+        <article class="info-card">
+          <span class="section-label">Fonte</span>
+          <h2>Base oficial como verdade</h2>
+          <p>
+            O prompt em <code>app/prompts/system_prompt.md</code> restringe a resposta aos trechos recuperados e
+            orienta o modelo a responder em português do Brasil, com linguagem simples.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <span class="section-label">Contexto</span>
+          <h2>PDF extraído para Markdown</h2>
+          <p>
+            <code>scripts/extract_context.py</code> extrai <code>data/context.pdf</code>, grava
+            <code>data/contexto.md</code> com marcadores de página e gera <code>data/context_index.json</code>.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <span class="section-label">Indexação</span>
+          <h2>Recriação controlada da coleção</h2>
+          <p>
+            <code>scripts/index_context.py</code> chama <code>RagService.index_context()</code>, que apaga e recria a
+            coleção configurada antes de adicionar os chunks.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <span class="section-label">Memória</span>
+          <h2>Histórico em memória</h2>
+          <p>
+            <code>MemoryService</code> guarda mensagens por <code>session_id</code> durante a execução do processo e
+            envia as últimas rodadas ao modelo quando aplicável.
+          </p>
+        </article>
+      </section>
+
+      <section class="about">
+        <span class="section-label">Parâmetros</span>
+        <h2>Configurações observadas</h2>
+        <div class="parameter-table" role="table" aria-label="Parâmetros do ambiente">
+          <div role="row">
+            <strong role="cell">LLM_PROVIDER</strong>
+            <span role="cell">Provedor da LLM: <code>openai</code> ou <code>gemini</code>.</span>
+          </div>
+          <div role="row">
+            <strong role="cell">LLM_MODEL</strong>
+            <span role="cell">Modelo usado para gerar respostas.</span>
+          </div>
+          <div role="row">
+            <strong role="cell">CONTEXT_FILE_PATH</strong>
+            <span role="cell">Caminho do Markdown ou TXT usado como contexto.</span>
+          </div>
+          <div role="row">
+            <strong role="cell">SYSTEM_PROMPT_PATH</strong>
+            <span role="cell">Arquivo com as regras de comportamento da LLM.</span>
+          </div>
+          <div role="row">
+            <strong role="cell">VECTORSTORE_PATH</strong>
+            <span role="cell">Diretório de persistência do ChromaDB.</span>
+          </div>
+          <div role="row">
+            <strong role="cell">CHUNK_SIZE e CHUNK_OVERLAP</strong>
+            <span role="cell">Tamanho dos chunks e sobreposição usada na indexação.</span>
+          </div>
+          <div role="row">
+            <strong role="cell">TOP_K</strong>
+            <span role="cell">Quantidade máxima de trechos retornados pela busca.</span>
+          </div>
+          <div role="row">
+            <strong role="cell">EMBEDDING_PROVIDER</strong>
+            <span role="cell">Define embeddings locais ou via provedor de LLM.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <span class="section-label">Execução</span>
+        <h2>Ambiente e empacotamento</h2>
+        <p>
+          O projeto usa <code>requirements.txt</code> para dependências Python, <code>Dockerfile</code> com
+          <code>python:3.12-slim</code> e <code>docker-compose.yml</code> expondo a aplicação na porta
+          <code>8374</code>.
+        </p>
+        <p class="notice">
+          O arquivo <code>.env</code> não deve ser exposto. Use <code>.env.example</code> como referência de nomes de
+          variáveis e preencha as chaves localmente.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>Projeto acadêmico - Bacharelado em Sistemas de Informação do CEFET Varginha</span>
+        <span>Apoio: Núcleo de Apoio Fiscal do CEFET Varginha</span>
+        <span><a href="/">Voltar ao chat</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

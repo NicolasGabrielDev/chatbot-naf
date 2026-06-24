@@ -40,6 +40,7 @@ function Header() {
         <nav class="nav" aria-label="Navegação principal">
           <a href="#conteudo">Início</a>
           <a href="#sobre">Sobre</a>
+          <a href="/tecnologias.html">Tecnologias</a>
           <a href="https://www.gov.br/receitafederal" target="_blank" rel="noopener noreferrer">Fonte oficial</a>
         </nav>
       </div>

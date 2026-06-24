@@ -42,6 +42,19 @@ class TopicCatalogTest(unittest.TestCase):
             "restituicao imposto renda",
         )
 
+    def test_simplify_question_filters_short_noise_and_keeps_fiscal_acronyms(self) -> None:
+        self.assertEqual(
+            simplify_question("Tenho MEI e CPF, preciso declarar IRPF?"),
+            "mei cpf declarar irpf",
+        )
+
+    def test_simplify_question_expands_common_manual_terms(self) -> None:
+        self.assertEqual(
+            simplify_question("Recebi herança, isso entra na declaração?"),
+            "recebi heranca transferencias patrimoniais doacoes herancas bens direitos declaracao",
+        )
+        self.assertIn("ginastica", simplify_question("Posso abater academia na saúde?"))
+
     def test_pages_for_topics_combines_selected_pages(self) -> None:
         topics = [
             {"id": "001", "pages": [23, 24]},

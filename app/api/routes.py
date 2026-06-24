@@ -1,4 +1,5 @@
 import logging
+from functools import lru_cache
 from time import perf_counter
 from uuid import uuid4
 
@@ -6,7 +7,8 @@ from fastapi import APIRouter, HTTPException, Response, status
 
 from app.core.config import get_settings
 from app.schemas.chat import ChatRequest, ChatResponse, HealthResponse
-from app.services.llm_service import LLMRateLimitError, LLMServiceError
+from app.services.direct_answer_service import answer_direct_question, should_answer_without_rag
+from app.services.llm_service import LLMRateLimitError, LLMService, LLMServiceError
 from app.services.rag_service import RagService, RagServiceError
 from app.services.memory_service import memory_service
 
@@ -15,6 +17,11 @@ logger = logging.getLogger(__name__)
 
 CHAT_ERROR_MESSAGE = "Não foi possível processar sua pergunta agora. Tente novamente mais tarde."
 RATE_LIMIT_ERROR_MESSAGE = "O provedor de IA atingiu o limite temporário de uso. Tente novamente mais tarde."
+
+
+@lru_cache(maxsize=1)
+def get_rag_service() -> RagService:
+    return RagService(get_settings())
 
 
 @router.get("/health", response_model=HealthResponse)
@@ -34,6 +41,20 @@ def chat(payload: ChatRequest, response: Response) -> ChatResponse:
     )
 
     try:
+        direct_answer = answer_direct_question(payload.question)
+        if direct_answer:
+            if payload.session_id:
+                memory_service.add_message(payload.session_id, "user", payload.question)
+                memory_service.add_message(payload.session_id, "assistant", direct_answer)
+
+            elapsed_ms = round((perf_counter() - started_at) * 1000, 2)
+            logger.info(
+                "chat.request.completed_direct request_id=%s elapsed_ms=%s",
+                request_id,
+                elapsed_ms,
+            )
+            return ChatResponse(answer=direct_answer, sources=[], model_used="resposta-local")
+
         settings = get_settings()
         logger.info(
             "chat.config.loaded request_id=%s provider=%s model=%s top_k=%s context_file=%s",
@@ -44,10 +65,27 @@ def chat(payload: ChatRequest, response: Response) -> ChatResponse:
             settings.context_file_path,
         )
 
-        service = RagService(settings)
-        logger.info("chat.rag.initialized request_id=%s", request_id)
-
         history = memory_service.get_history(payload.session_id) if payload.session_id else []
+
+        if should_answer_without_rag(payload.question):
+            llm_service = LLMService(settings)
+            answer = llm_service.generate_short_answer(payload.question, history)
+
+            if payload.session_id:
+                memory_service.add_message(payload.session_id, "user", payload.question)
+                memory_service.add_message(payload.session_id, "assistant", answer)
+
+            elapsed_ms = round((perf_counter() - started_at) * 1000, 2)
+            logger.info(
+                "chat.request.completed_short request_id=%s model=%s elapsed_ms=%s",
+                request_id,
+                llm_service.model_used,
+                elapsed_ms,
+            )
+            return ChatResponse(answer=answer, sources=[], model_used=llm_service.model_used)
+
+        service = get_rag_service()
+        logger.info("chat.rag.initialized request_id=%s", request_id)
 
         answer, sources, model_used = service.answer(payload.question, history)
         

@@ -4,23 +4,62 @@ import re
 import unicodedata
 
 TOKEN_PATTERN = re.compile(r"[a-z0-9]{3,}")
+KNOWN_FISCAL_ACRONYMS = {"cpf", "cnpj", "mei", "irpf", "irpj", "pix"}
+QUERY_EXPANSIONS = {
+    "academia": ["ginastica", "esporte", "despesas", "instrucao"],
+    "automovel": ["veiculo", "automotor", "bens", "direitos"],
+    "carro": ["veiculo", "automotor", "bens", "direitos"],
+    "financiado": ["financiamento", "alienacao", "fiduciaria"],
+    "financiamento": ["financiado", "alienacao", "fiduciaria"],
+    "heranca": ["transferencias", "patrimoniais", "doacoes", "herancas", "bens", "direitos"],
+    "herdei": ["heranca", "transferencias", "patrimoniais", "doacoes", "herancas"],
+    "isento": ["rendimentos", "isentos", "nao", "tributaveis"],
+    "izento": ["isento", "rendimentos", "isentos", "nao", "tributaveis"],
+    "pix": ["restituicao", "chave", "cpf"],
+    "veiculo": ["automotor", "bens", "direitos"],
+}
 STOP_WORDS = {
+    "caso",
     "como",
     "das",
     "dos",
     "ela",
     "ele",
+    "entra",
+    "entrar",
+    "entre",
     "essa",
     "esse",
     "esta",
     "este",
+    "fazer",
+    "feito",
     "isso",
+    "meu",
+    "meus",
+    "minha",
+    "minhas",
+    "onde",
     "para",
     "pela",
     "pelo",
+    "pode",
+    "podem",
     "por",
+    "preciso",
+    "qual",
+    "quais",
+    "quando",
+    "quem",
     "que",
+    "sobre",
     "ser",
+    "tenha",
+    "tenho",
+    "tipo",
+    "valor",
+    "valores",
+    "devo",
     "uma",
 }
 
@@ -45,8 +84,16 @@ def simplify_question(question: str) -> str:
     normalized = unicodedata.normalize("NFKD", question.lower())
     without_accents = "".join(character for character in normalized if not unicodedata.combining(character))
     tokens = TOKEN_PATTERN.findall(without_accents)
-    relevant_tokens = [token for token in tokens if token not in STOP_WORDS]
-    return " ".join(dict.fromkeys(relevant_tokens))
+    relevant_tokens = [
+        token
+        for token in tokens
+        if token not in STOP_WORDS and (len(token) >= 4 or token in KNOWN_FISCAL_ACRONYMS)
+    ]
+    expanded_tokens = []
+    for token in relevant_tokens:
+        expanded_tokens.append(token)
+        expanded_tokens.extend(QUERY_EXPANSIONS.get(token, []))
+    return " ".join(dict.fromkeys(expanded_tokens))
 
 
 def pages_for_topics(topics: list[dict], topic_ids: list[str]) -> list[int]:
